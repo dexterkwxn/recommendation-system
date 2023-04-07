@@ -37,21 +37,92 @@ Recommendation Menu
 '''
 def recommendation_menu():
     display.recommendation_menu_text()
-    while True:
-        
-        
-    # budget
+    budget = 0
+    school = 0
+    roomopt = 0
+    ac = 0
+    facil = 0
 
-    # course
+    # budget
+    display.req_budget_text()
+    while True:
+        try:
+            budget = float(input())
+            if budget > 0:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')
+    
+    # school
+    display.req_school_text()
+    while True:
+        try:
+            school = int(input())
+            if school in [i for i, _ in school_mapping]:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')
 
     # single vs double
-
+    display.req_roomtype_text()
+    while True:
+        try:
+            roomopt = int(input())
+            if roomopt in [1,2]:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')            
+   
     # air con
+    display.req_aircon_text()
+    while True:
+        try:
+            ac = int(input())
+            if ac in [1,2]:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')  
 
     # must have facilities
+    display.req_facilities_text()
+    while True:
+        try:
+            facil = int(input())
+            if ac in [1,2,3]:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')  
 
     # actual recommendation algorithm
+    #Looping through for facilities
+    results = data
+    for hallnum, hallinfo in results:
+        if facil == 1: #Only Gym
+            if canteen in hallinfo[facilities]:
+                continue
+        elif facil == 2: #Only Canteen
+            if canteen in hallinfo[facilities]:
+                continue
+        else:
+            if (canteen in hallinfo[facilities]) and (canteen in hallinfo[facilities]):
+                continue
+        del results[hallnum]
 
+    #Looping through for distance
+    for hallnum, hallinfo in results:
+        school_coord = school_data[school]
+        
+        pass
 
     # display result
 
