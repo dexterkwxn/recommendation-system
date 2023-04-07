@@ -2,7 +2,9 @@ from constants import *
 data = {
     hall1: {
         name: hall1,
-        location: 'somewhere'
+        location: [100, 200],
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall2: {
         name: hall2,

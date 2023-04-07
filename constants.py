@@ -3,6 +3,22 @@ Keys
 '''
 name = 'name'
 location = 'location'
+rooms = 'rooms'
+
+
+
+
+'''
+Room Types
+'''
+single = 'Single'
+singleToilet = 'Single w/ Toilet'
+singleAC = 'Single (AC)'
+singleACToilet = 'Single (AC) w/ Toilet'
+double = 'Double'
+doubleToilet = 'Double w/ Toilet'
+doubleAC = 'Double (AC)'
+doubleACToilet = 'Double (AC) w/ Toilet'
 
 
 '''
