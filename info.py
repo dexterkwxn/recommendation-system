@@ -97,6 +97,27 @@ data = {
     },
 }
 
+school_data = {
+    nbs: (10,10),
+    cceb: (),
+    eee: (),
+    cee: (),
+    mse: (),
+    scse: (),
+    mae: (),
+    soh: (),
+    adm: (),
+    wkwsci: (),
+    sss: (),
+    spms: (),
+    sbs: (),
+    ase: (),
+    lkc: (),
+    nie: (),
+    rsis: ()
+}
+
+
 hall_mapping = [
     [1, hall1],
     [2, hall2],
@@ -150,4 +171,33 @@ map_locations = {
     hall23:[0, 0],
 }
 
+school_mapping = [
+    [1, nbs],
+    [2, cceb],
+    [3, eee],
+    [4, cee],
+    [5, mse],
+    [6, scse],
+    [7, mae],
+    [8, soh],
+    [9, adm],
+    [10, wkwsci],
+    [11, sss],
+    [12, spms],
+    [13, sbs],
+    [14, ase],
+    [15, lkc],
+    [16, nie],
+    [17, rsis],
+]
 
+room_mapping = [
+    [1, single],
+    [2, singleToilet],
+    [3, singleAC],
+    [4, singleACToilet],
+    [5, double],
+    [6, doubleToilet],
+    [7, doubleAC],
+    [8, doubleACToilet],
+]

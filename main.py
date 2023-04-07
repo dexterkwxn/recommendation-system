@@ -1,4 +1,4 @@
-import cv2
+# import cv2
 import helper
 import display
 from info import *
@@ -37,24 +37,85 @@ Recommendation Menu
 '''
 def recommendation_menu():
     display.recommendation_menu_text()
-    while True:
-        
-        
-    # budget
+    budget = 0
+    school = 0
+    roomopt = 0
+    ac = 0
+    facil = 0
 
-    # course
+    # budget
+    display.req_budget_text()
+    while True:
+        try:
+            budget = float(input())
+            if budget > 0:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')
+    
+    # school
+    display.req_school_text()
+    while True:
+        try:
+            school = int(input())
+            if school in [i for i, _ in school_mapping]:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')
 
     # single vs double
-
-    # air con
-
+    display.req_roomtype_text()
+    while True:
+        try:
+            roomopt = int(input())
+            if roomopt in [i for i, _ in room_mapping]:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')            
+   
     # must have facilities
+    display.req_facilities_text()
+    while True:
+        try:
+            facil = int(input())
+            if facil in [1,2,3]:
+                break
+            else:
+                print('Error. Re-input a proper option')
+        except:
+                print('Error. Re-input a proper option')  
 
     # actual recommendation algorithm
+    results = data
+    final = []
+
+    
+    #Facilities Check
+    fac = []
+    if facil == 1: #Only Gym
+        fac = [v[name] for k, v in data.items() if gym in v[facilities]]
+    elif facil == 2: #Only Canteen
+        fac = [v[name] for k, v in data.items() if canteen in v[facilities]]
+    else:
+        fac = [v[name] for k, v in data.items() if (gym in v[facilities] and canteen in v[facilities])]
 
 
+    #Room Type Check
+    room_type_halls = [v[name] for k, v in data.items() if roomopt in [i[0] for i in v[rooms]]]
+
+    # budget
+    budget_halls = [v[name] for k, v in data.items() if budget < j[1] for j in v[rooms]]
+
+    #room_data = [room[0] for hall in halls for room in data[hall][rooms] if roomopt == room[0]]
+    final_room = []
     # display result
-
+    
 
 '''
 Main Menu
