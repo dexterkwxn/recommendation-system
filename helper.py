@@ -1,5 +1,6 @@
 import math
 import pygame
+from info import *
 
 def show_image(filename, circles):
     pygame.init()
@@ -22,8 +23,8 @@ def show_image(filename, circles):
     # set up circle
     radius = 30
     thickness = 2
-    for c in circles:
-        pygame.draw.circle(surface, (255, 0, 0), (c[0], c[1]), radius, thickness)
+    for k, c in circles.items():
+        pygame.draw.circle(surface, (255, 0, 0), (c[0] * x / 1000, c[1] * y / 1000), radius, thickness)
 
     # render
     scrn = pygame.display.set_mode(img.get_size())
@@ -39,4 +40,4 @@ def show_image(filename, circles):
 def dist(x1, y1, x2, y2):
     return math.sqrt((x1-x2)**2 + (y1-y2)**2)
 
-show_image('./ntu_map.png', [[100, 100], [500,400]])
+show_image('./ntu_map.png', map_locations)
