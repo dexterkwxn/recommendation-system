@@ -1,9 +1,9 @@
 import math
 import pygame
 
-def show_image(filename):
+def show_image(filename, circles):
     pygame.init()
-    x = 600
+    x = 800
     # load image
     pygame.display.set_caption('image')
     img = pygame.image.load(filename)
@@ -15,22 +15,28 @@ def show_image(filename):
     IMAGE_SZ = (x, y)
 
     # set up screen 
-    scrn = pygame.display.set_mode((x, y))
     img = pygame.transform.scale(img, IMAGE_SZ)
-    img = img.convert()
+    surface = pygame.Surface(img.get_size())
+    surface.blit(img, (0, 0))
+
+    # set up circle
+    radius = 30
+    thickness = 2
+    for c in circles:
+        pygame.draw.circle(surface, (255, 0, 0), (c[0], c[1]), radius, thickness)
 
     # render
-    scrn.blit(img, (0, 0))
-    pygame.display.flip()
-    status = True
-    while (status):
+    scrn = pygame.display.set_mode(img.get_size())
+    scrn.blit(surface, (0, 0))
+    pygame.display.update()
+
+    while True:
         for i in pygame.event.get():
             if i.type == pygame.QUIT:
-                status = False
-    pygame.quit()
+                pygame.quit()
 
 
 def dist(x1, y1, x2, y2):
     return math.sqrt((x1-x2)**2 + (y1-y2)**2)
 
-show_image('./image1.jpg')
+show_image('./ntu_map.png', [[100, 100], [500,400]])
