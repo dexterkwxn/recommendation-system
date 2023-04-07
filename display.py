@@ -37,17 +37,15 @@ def req_school_text():
         print(i, ": ", name)
 
 def req_roomtype_text():
-    print('''Input the index of your desired room type
-1. Single
-2. Double''')
+    print('Attached are the room types in NTU, input the index number of the school from which your course is from')
+    for i, name in room_mapping:
+        print(i,": ", name)
 
-def req_aircon_text():
-    print('''Input the index of choice of aircon
-1. No AC
-2. AC''')
 
 def req_facilities_text():
     print('Attached are facilities near the halls, input the index option')
     print('''1. Gym
 2. Canteen
 3. All of the above''')
+
+req_roomtype_text()

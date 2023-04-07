@@ -163,3 +163,14 @@ school_mapping = [
     [16, nie],
     [17, rsis],
 ]
+
+room_mapping = [
+    [1, single],
+    [2, singleToilet],
+    [3, singleAC],
+    [4, singleACToilet],
+    [5, double],
+    [6, doubleToilet],
+    [7, doubleAC],
+    [8, doubleACToilet],
+]
