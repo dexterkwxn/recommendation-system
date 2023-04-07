@@ -48,4 +48,10 @@ def req_facilities_text():
 2. Canteen
 3. All of the above''')
 
-req_roomtype_text()
+def ranking_text(i = 0):
+    if i == 0:
+        print('Here are the halls that fulfil all the criteria given')
+    if i == 1:
+        print('Here are the halls that fulfil all the criteria given')
+
+
