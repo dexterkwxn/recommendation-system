@@ -96,24 +96,27 @@ def recommendation_menu():
     final = []
 
     
-    #Facilities Check
-    fac = []
+    # facilities
+    facilities_halls = []
     if facil == 1: #Only Gym
-        fac = [v[name] for k, v in data.items() if gym in v[facilities]]
+        facilities_halls = [v[name] for k, v in data.items() if gym in v[facilities]]
     elif facil == 2: #Only Canteen
-        fac = [v[name] for k, v in data.items() if canteen in v[facilities]]
+        facilities_halls = [v[name] for k, v in data.items() if canteen in v[facilities]]
     else:
-        fac = [v[name] for k, v in data.items() if (gym in v[facilities] and canteen in v[facilities])]
+        facilities_halls = [v[name] for k, v in data.items() if (gym in v[facilities] and canteen in v[facilities])]
 
-
-    #Room Type Check
+    # room type
     room_type_halls = [v[name] for k, v in data.items() if roomopt in [i[0] for i in v[rooms]]]
 
     # budget
-    budget_halls = [v[name] for k, v in data.items() if budget < j[1] for j in v[rooms]]
+    budget_halls = []
+    for k, v in data.items():
+        for roomtype, price in v[rooms]:
+            if price <= budget:
+                budget_halls.append(v[name])
 
-    #room_data = [room[0] for hall in halls for room in data[hall][rooms] if roomopt == room[0]]
-    final_room = []
+    final_halls = [hall for hall in room_type_halls if hall in budget_halls and hall in facilities_halls]
+
     # display result
     
 
