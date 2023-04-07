@@ -37,7 +37,9 @@ Recommendation Menu
 '''
 def recommendation_menu():
     display.recommendation_menu_text()
-
+    while True:
+        
+        
     # budget
 
     # course
