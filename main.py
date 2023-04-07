@@ -114,8 +114,11 @@ def recommendation_menu():
         for roomtype, price in v[rooms]:
             if price <= budget:
                 budget_halls.append(v[name])
+                break
 
-    final_halls = [hall for hall in room_type_halls if hall in budget_halls and hall in facilities_halls]
+    best_halls = [hall for hall in room_type_halls if (hall in budget_halls and hall in facilities_halls)]
+    runner_up_halls = [hall for hall in room_type_halls if (hall in budget_halls or hall in facilities_halls)]
+    runner_up_halls = [hall for hall in runner_up_halls if hall not in best_halls]
 
     # display result
     
