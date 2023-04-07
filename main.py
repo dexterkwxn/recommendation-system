@@ -38,6 +38,12 @@ Recommendation Menu
 def recommendation_menu():
     display.recommendation_menu_text()
 
+    
+    #Takes in course
+    #Calculates each hall's distance from the school which the course is in
+    #
+
+    #
 
 '''
 Main Menu
