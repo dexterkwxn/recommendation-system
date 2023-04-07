@@ -38,12 +38,21 @@ Recommendation Menu
 def recommendation_menu():
     display.recommendation_menu_text()
 
-    
-    #Takes in course
-    #Calculates each hall's distance from the school which the course is in
-    #
+    # budget
 
-    #
+    # course
+
+    # single vs double
+
+    # air con
+
+    # must have facilities
+
+    # actual recommendation algorithm
+
+
+    # display result
+
 
 '''
 Main Menu

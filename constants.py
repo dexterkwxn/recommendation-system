@@ -4,21 +4,26 @@ Keys
 name = 'name'
 location = 'location'
 rooms = 'rooms'
-
-
+facilities = 'facilities'
 
 
 '''
 Room Types
 '''
-single = 'Single'
-singleToilet = 'Single w/ Toilet'
+single = 'Single (No AC)'
+singleToilet = 'Single (No AC) w/ Toilet'
 singleAC = 'Single (AC)'
 singleACToilet = 'Single (AC) w/ Toilet'
-double = 'Double'
-doubleToilet = 'Double w/ Toilet'
+double = 'Double (No AC)'
+doubleToilet = 'Double (No AC) w/ Toilet'
 doubleAC = 'Double (AC)'
 doubleACToilet = 'Double (AC) w/ Toilet'
+
+'''
+Facilities
+'''
+canteen = "Canteen"
+gym = 'Gym'
 
 
 '''

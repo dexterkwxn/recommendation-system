@@ -26,4 +26,4 @@ def browsing_menu_catalog():
 
 
 def recommendation_menu_text():
-    print('Welcome to the recommendation menu')
+    print('Welcome to the recommendation menu.')

@@ -14,7 +14,8 @@ data = {
         name: hall3,
         location: 'somewhere'
     },
-    hall4: {
+    hall4:
+      {
         name: hall4,
         location: 'somewhere'
     },
