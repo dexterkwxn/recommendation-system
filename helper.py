@@ -40,4 +40,5 @@ def show_image(filename, circles):
 def dist(x1, y1, x2, y2):
     return math.sqrt((x1-x2)**2 + (y1-y2)**2)
 
+#show_image('./ntu_map.png', school_data)
 show_image('./ntu_map.png', map_locations)
