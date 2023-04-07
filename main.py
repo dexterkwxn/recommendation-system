@@ -25,7 +25,7 @@ def browsing_menu():
         show_hall_info(choice)
 
 def show_hall_info(choice):
-    print(f'You have selected {choice}.{data[choice]}')
+    print(f'You have selected {choice}: {data[choice][name]}')
     # show information, select to show pic maybe
 
     # return once done
