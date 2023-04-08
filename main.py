@@ -27,9 +27,19 @@ def browsing_menu():
 def show_hall_info(choice):
     print(f'You have selected {choice}: {data[choice][name]}')
     # show information, select to show pic maybe
-
-    # return once done
-
+    print(f'{data[choice][name]}:')
+    for room, price in data[choice][rooms]:
+        print(f'Room Type: {room}, Price: {price}')
+    print('Facilities Available:')
+    if len(data[choice][facilities]) == 0:
+        print("None.")
+    else:
+        for i, fac in enumerate(data[choice][facilities]):
+            print(f'{i}. {fac}')
+    
+    print("Enter anything to go back to the browsing menu.")
+    _ = input()
+    return
 
 
 '''
