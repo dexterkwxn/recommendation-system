@@ -2,7 +2,7 @@ import math
 import pygame
 from info import *
 
-def show_image(filename, circles, color):
+def show_image(filename, circles, color, circles2, color2):
     pygame.init()
     # load image
     pygame.display.set_caption('image')
@@ -25,6 +25,8 @@ def show_image(filename, circles, color):
     thickness = 2
     for k, c in circles.items():
         pygame.draw.circle(surface, color, (c[0] * x / 1000, c[1] * y / 1000), radius, thickness)
+    for k, c in circles2.items():
+        pygame.draw.circle(surface, color2, (c[0] * x / 1000, c[1] * y / 1000), radius, thickness)
 
     # render
     scrn = pygame.display.set_mode(img.get_size())
