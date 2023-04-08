@@ -88,7 +88,7 @@ def recommendation_menu():
         except:
                 print('Error. Re-input a proper option')            
     room_type = [type for i, type in room_mapping if i == roomopt][0]
-
+   
     # must have facilities
     display.req_facilities_text()
     while True:
@@ -157,7 +157,7 @@ def recommendation_menu():
             print(f"{index + 1}. {item[0]}, Price: {item[1]}")
         print("")
 
-
+  
 '''
 Main Menu
 '''
