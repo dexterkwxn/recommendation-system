@@ -43,10 +43,11 @@ def req_roomtype_text():
 
 
 def req_facilities_text():
-    print('Attached are facilities near the halls, input the index option')
+    print('Attached are facilities near the halls, input which facilities you want near your hall')
     print('''1. Gym
 2. Canteen
-3. All of the above''')
+3. All of the above
+4. None of the above''')
 
 def ranking_text(i = 0):
     if i == 0:

@@ -10,7 +10,7 @@ def browsing_menu():
     while True:
         display.browsing_menu_text()
         choice = 0
-        while True:
+        while True: #handle errors
             display.browsing_menu_catalog()
             try:
                 choice = int(input())
@@ -57,7 +57,7 @@ def recommendation_menu():
 
     # budget
     display.req_budget_text()
-    while True:
+    while True: #error handling
         try:
             budget = float(input())
             if budget > 0:
@@ -97,7 +97,7 @@ def recommendation_menu():
     while True:
         try:
             facil = int(input())
-            if facil in [1,2,3]:
+            if facil in [1,2,3,4]:
                 break
             else:
                 print('Error. Re-input a proper option')
@@ -105,18 +105,17 @@ def recommendation_menu():
                 print('Error. Re-input a proper option')  
 
     # actual recommendation algorithm
-    results = data
-    final = []
 
-    
     # facilities
     facilities_halls = []
     if facil == 1: #Only Gym
         facilities_halls = [v[name] for k, v in data.items() if gym in v[facilities]]
     elif facil == 2: #Only Canteen
         facilities_halls = [v[name] for k, v in data.items() if canteen in v[facilities]]
-    else:
+    elif facil == 3: #Canteen and Gym
         facilities_halls = [v[name] for k, v in data.items() if (gym in v[facilities] and canteen in v[facilities])]
+    else: #none of the above
+        facilities_halls = [v[name] for k, v in data.items()]
 
     # room type
     room_type_halls = [v[name] for k, v in data.items() if room_type in [i[0] for i in v[rooms]]]
@@ -129,16 +128,16 @@ def recommendation_menu():
                 budget_halls.append(v[name])
                 break
 
-    best_halls = [hall for hall in room_type_halls if (hall in budget_halls and hall in facilities_halls)]
-    runner_up_halls = [hall for hall in room_type_halls if (hall in budget_halls or hall in facilities_halls)]
-    runner_up_halls = [hall for hall in runner_up_halls if hall not in best_halls]
+    best_halls = [hall for hall in room_type_halls if (hall in budget_halls and hall in facilities_halls)] #all the halls that fit all the criteria: budget, room type and facilities
+    halls_to_map = {}
 
     #Check for best roomtypes
     halls = [data[hall] for hall in best_halls]
     best_rooms = []
-    runner_up_rooms = [data[hall] for hall in runner_up_halls]
-    #First choice
+
+    #best choice
     for hall in halls:
+        halls_to_map[hall[name]] = hall_locations[hall[name]]
         item = hall.copy()
         item[rooms] = []
         for j in hall[rooms]:
@@ -149,7 +148,7 @@ def recommendation_menu():
     # display result
     display.ranking_text(i= 0)
     count = 1
-    for i in best_rooms:
+    for i in best_rooms: #to print out results
         school_mapped = [i[1] for i in school_mapping if school in i][0]
         school_coord = school_locations[school_mapped]
         distance = helper.dist(int(school_coord[0]), int(school_coord[1]), int(hall_locations[i[name]][0]), int(hall_locations[i[name]][1]))
@@ -160,8 +159,12 @@ def recommendation_menu():
             print(f"{index + 1}. {item[0]}, Price: {item[1]}")
         print("")
 
-  
-'''
+    print(halls_to_map)
+    #to show on map
+    helper.show_image('./ntu_map.png', {school_mapped: school_coord}, (255, 0, 0))
+    helper.show_image('./ntu_map.png', halls_to_map, (0, 255, 0))
+
+''' 
 Main Menu
 '''
 def main():
@@ -177,7 +180,7 @@ def main():
         while True:
             try:
                 choice = int(input())
-                if choice not in [1, 2]:
+                if choice not in [1, 2, 3]:
                     print('Enter either 1, 2, or 3')
                 break
             except:
