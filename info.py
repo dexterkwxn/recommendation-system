@@ -8,92 +8,135 @@ data = {
     },
     hall2: {
         name: hall2,
-        location: 'somewhere'
+        location: [100, 200],
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall3: {
         name: hall3,
-        location: 'somewhere'
+        location: [100, 200],
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
-    hall4:
-      {
+    hall4: {
         name: hall4,
-        location: 'somewhere'
+        location: [100, 200],
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall5: {
         name: hall5,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall6: {
         name: hall6,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall7: {
         name: hall7,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall8: {
         name: hall8,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall9: {
         name: hall9,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall10: {
         name: hall10,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall11: {
         name: hall11,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall12: {
         name: hall12,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall13: {
         name: hall13,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+          facilities: [canteen, gym],
     },
     hall14: {
         name: hall14,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall15: {
         name: hall15,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall16: {
         name: hall16,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall17: {
         name: hall17,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall18: {
         name: hall18,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall19: {
         name: hall19,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall20: {
         name: hall20,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+          facilities: [canteen, gym],
     },
     hall21: {
         name: hall21,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall22: {
         name: hall22,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
     hall23: {
         name: hall23,
-        location: 'somewhere'
+        location: 'somewhere',
+        rooms: [[single, 800], [singleAC, 900]],
+        facilities: [canteen, gym],
     },
 }
 

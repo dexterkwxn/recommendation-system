@@ -37,7 +37,7 @@ def req_school_text():
         print(i, ": ", name)
 
 def req_roomtype_text():
-    print('Attached are the room types in NTU, input the index number of the school from which your course is from')
+    print('Attached are the room types in NTU, input the index number of the room type you prefer')
     for i, name in room_mapping:
         print(i,": ", name)
 

@@ -43,7 +43,5 @@ def show_image(filename, circles, color):
 def dist(x1, y1, x2, y2):
     return math.sqrt((x1-x2)**2 + (y1-y2)**2)
 
-show_image('./ntu_map.png', school_locations, (255, 0, 0))
-show_image('./ntu_map.png', hall_locations, (0, 255, 0))
-
-print(dist(710,740,556,758))
+# show_image('./ntu_map.png', school_locations, (255, 0, 0))
+# show_image('./ntu_map.png', hall_locations, (0, 255, 0))

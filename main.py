@@ -87,7 +87,8 @@ def recommendation_menu():
                 print('Error. Re-input a proper option')
         except:
                 print('Error. Re-input a proper option')            
-   
+    room_type = [type for i, type in room_mapping if i == roomopt][0]
+
     # must have facilities
     display.req_facilities_text()
     while True:
@@ -115,7 +116,7 @@ def recommendation_menu():
         facilities_halls = [v[name] for k, v in data.items() if (gym in v[facilities] and canteen in v[facilities])]
 
     # room type
-    room_type_halls = [v[name] for k, v in data.items() if roomopt in [i[0] for i in v[rooms]]]
+    room_type_halls = [v[name] for k, v in data.items() if room_type in [i[0] for i in v[rooms]]]
 
     # budget
     budget_halls = []
@@ -130,28 +131,31 @@ def recommendation_menu():
     runner_up_halls = [hall for hall in runner_up_halls if hall not in best_halls]
 
     #Check for best roomtypes
-    best_rooms = [data[hall] for hall in best_halls]
+    halls = [data[hall] for hall in best_halls]
+    best_rooms = []
     runner_up_rooms = [data[hall] for hall in runner_up_halls]
     #First choice
-    for i in best_rooms:
-        for j in i[rooms]:
-            if j[0] == roomopt and j[1] <= budget:
-                continue
-            else:
-                del best_rooms[i][rooms][j]
+    for hall in halls:
+        item = hall.copy()
+        item[rooms] = []
+        for j in hall[rooms]:
+            if j[0] == room_type and j[1] <= budget:
+                item[rooms].append(j)
+        best_rooms.append(item.copy())
 
     # display result
     display.ranking_text(i= 0)
     count = 1
     for i in best_rooms:
-        school_mapped = [i[1] for i in school_mapping if school in i]
+        school_mapped = [i[1] for i in school_mapping if school in i][0]
         school_coord = school_locations[school_mapped]
-        distance = helper.dist(school_coord[0], school_coord[1], i[location][0], i[location][1])
-        walking_time = distance/walking_time
-        print(f"{i[name]}.\nEstimated Walking time to school: {walking_time} minutes\nFacilities: {i[facilities]}.")
-        print("Recommended rooms")
+        distance = helper.dist(int(school_coord[0]), int(school_coord[1]), int(hall_locations[i[name]][0]), int(hall_locations[i[name]][1]))
+        walking_time = distance//walking_rate
+        print(f"\n{i[name]} ---\nEstimated Walking time to school: {walking_time} minutes\nFacilities: {i[facilities]}.")
+        print("Recommended rooms:")
         for index, item in enumerate(i[rooms]):
             print(f"{index + 1}. {item[0]}, Price: {item[1]}")
+        print("")
 
 
 '''
@@ -159,20 +163,22 @@ Main Menu
 '''
 def main():
     # show init text
+    display.welcome_text()
 
     # main loop
     while True: 
     # give options for browsing or recommendation
         #display main menu text
+        display.main_menu_text()
         choice = 0
         while True:
             try:
                 choice = int(input())
                 if choice not in [1, 2]:
-                    print('Enter either 1 or 2')
+                    print('Enter either 1, 2, or 3')
                 break
             except:
-                print('Enter either 1 or 2')
+                print('Enter either 1, 2, or 3')
         
         if choice == 1:
             browsing_menu()
@@ -183,5 +189,6 @@ def main():
             return;
 
 
+main()
 
 # main()
