@@ -21,21 +21,24 @@ def browsing_menu():
                 break
             except:
                 print('Enter a valid option')
-
+        choice = [i[1] for i in hall_mapping if choice in i][0]
         show_hall_info(choice)
 
 def show_hall_info(choice):
-    print(f'You have selected {choice}: {data[choice][name]}')
+    print(f'You have selected {choice}')
     # show information, select to show pic maybe
-    print(f'{data[choice][name]}:')
+    print(f'\n{data[choice][name]}:')
+    print("Room types available:")
+    count = 1
     for room, price in data[choice][rooms]:
-        print(f'Room Type: {room}, Price: {price}')
-    print('Facilities Available:')
+        print(f'{count}. {room}, Price: ${price}')
+        count += 1
+    print('\nFacilities Available in this hall: ')
     if len(data[choice][facilities]) == 0:
         print("None.")
     else:
         for i, fac in enumerate(data[choice][facilities]):
-            print(f'{i}. {fac}')
+            print(f'{i+1}. {fac}')
 
     print("Enter anything to go back to the browsing menu.")
     _ = input()
@@ -88,7 +91,7 @@ def recommendation_menu():
         except:
                 print('Error. Re-input a proper option')            
     room_type = [type for i, type in room_mapping if i == roomopt][0]
-
+   
     # must have facilities
     display.req_facilities_text()
     while True:
@@ -157,7 +160,7 @@ def recommendation_menu():
             print(f"{index + 1}. {item[0]}, Price: {item[1]}")
         print("")
 
-
+  
 '''
 Main Menu
 '''
