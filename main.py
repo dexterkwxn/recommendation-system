@@ -1,4 +1,4 @@
-# import cv2
+import pygame
 import helper
 import display
 from info import *
@@ -36,7 +36,7 @@ def show_hall_info(choice):
     else:
         for i, fac in enumerate(data[choice][facilities]):
             print(f'{i}. {fac}')
-    
+
     print("Enter anything to go back to the browsing menu.")
     _ = input()
     return
@@ -50,7 +50,6 @@ def recommendation_menu():
     budget = 0
     school = 0
     roomopt = 0
-    ac = 0
     facil = 0
 
     # budget
@@ -130,8 +129,30 @@ def recommendation_menu():
     runner_up_halls = [hall for hall in room_type_halls if (hall in budget_halls or hall in facilities_halls)]
     runner_up_halls = [hall for hall in runner_up_halls if hall not in best_halls]
 
+    #Check for best roomtypes
+    best_rooms = [data[hall] for hall in best_halls]
+    runner_up_rooms = [data[hall] for hall in runner_up_halls]
+    #First choice
+    for i in best_rooms:
+        for j in i[rooms]:
+            if j[0] == roomopt and j[1] <= budget:
+                continue
+            else:
+                del best_rooms[i][rooms][j]
+
     # display result
-    
+    display.ranking_text(i= 0)
+    count = 1
+    for i in best_rooms:
+        school_mapped = [i[1] for i in school_mapping if school in i]
+        school_coord = school_locations[school_mapped]
+        distance = helper.dist(school_coord[0], school_coord[1], i[location][0], i[location][1])
+        walking_time = distance/walking_time
+        print(f"{i[name]}.\nEstimated Walking time to school: {walking_time} minutes\nFacilities: {i[facilities]}.")
+        print("Recommended rooms")
+        for index, item in enumerate(i[rooms]):
+            print(f"{index + 1}. {item[0]}, Price: {item[1]}")
+
 
 '''
 Main Menu
@@ -162,4 +183,5 @@ def main():
             return;
 
 
-main()
+
+# main()

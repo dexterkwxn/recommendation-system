@@ -201,3 +201,5 @@ room_mapping = [
     [7, doubleAC],
     [8, doubleACToilet],
 ]
+
+walking_rate = 12

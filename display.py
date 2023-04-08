@@ -52,6 +52,6 @@ def ranking_text(i = 0):
     if i == 0:
         print('Here are the halls that fulfil all the criteria given')
     if i == 1:
-        print('Here are the halls that fulfil all the criteria given')
+        print('Here are the halls that fulfil all except one of the criteria given')
 
 

@@ -45,3 +45,5 @@ def dist(x1, y1, x2, y2):
 
 show_image('./ntu_map.png', school_locations, (255, 0, 0))
 show_image('./ntu_map.png', hall_locations, (0, 255, 0))
+
+print(dist(710,740,556,758))
